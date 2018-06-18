@@ -1,0 +1,15 @@
+targets:
+  $default:
+    builders:
+      built_value_generator|built_value:
+        generate_for:
+        - lib/models/built_complex_object.dart
+        - lib/models/built_simple_object.dart
+        - lib/models/built_value_serializers.dart
+      json_serializable|json_serializable:
+        generate_for:
+        - lib/models/serializable_complex_object.dart
+        - lib/models/serializable_simple_object.dart
+
+
+
