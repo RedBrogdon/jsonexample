@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:jsonexample/tab_pages.dart';
 
 void main() => runApp(MyApp());
 
@@ -46,7 +47,18 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
         body: TabBarView(
-          children: List.generate(10, (i) => Container()),
+          children: [
+            BasicsPage(),
+            ConvertedSimplePage(),
+            ConvertedComplexPage(),
+            ConvertedListPage(),
+            Container(),
+            Container(),
+            Container(),
+            Container(),
+            Container(),
+            Container(),
+          ],
         ),
       ),
     );
