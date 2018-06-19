@@ -162,7 +162,7 @@ class ConvertedComplexPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<ConvertedComplexObject> objects = JsonStrings.simpleObjects.map(
-          (jsonString) {
+      (jsonString) {
         final parsedJson = json.decode(jsonString);
         return ConvertedComplexObject.fromJson(parsedJson);
       },

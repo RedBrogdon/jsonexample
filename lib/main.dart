@@ -46,19 +46,22 @@ class MyHomePage extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
-          children: [
-            BasicsPage(),
-            ConvertedSimplePage(),
-            ConvertedComplexPage(),
-            ConvertedListPage(),
-            Container(),
-            Container(),
-            Container(),
-            Container(),
-            Container(),
-            Container(),
-          ],
+        body: new SafeArea(
+          bottom: false,
+          child: TabBarView(
+            children: [
+              BasicsPage(),
+              ConvertedSimplePage(),
+              ConvertedComplexPage(),
+              ConvertedListPage(),
+              Container(),
+              Container(),
+              Container(),
+              Container(),
+              Container(),
+              Container(),
+            ],
+          ),
         ),
       ),
     );

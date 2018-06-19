@@ -26,12 +26,15 @@ class ConvertedSimpleObject {
       aString: json['aString'],
       anInt: json['anInt'],
       aDouble: json['aDouble'],
-      aListOfStrings: json['aListOfStrings'] != null ?
-          List<String>.from(json['aListOfStrings']) : null,
-      aListOfInts: json['aListOfInts'] != null ?
-          List<int>.from(json['aListOfInts']) : null,
-      aListOfDoubles: json['aListOfDoubles'] != null ?
-          List<double>.from(json['aListOfDoubles']) : null,
+      aListOfStrings: json['aListOfStrings'] != null
+          ? List<String>.from(json['aListOfStrings'])
+          : null,
+      aListOfInts: json['aListOfInts'] != null
+          ? List<int>.from(json['aListOfInts'])
+          : null,
+      aListOfDoubles: json['aListOfDoubles'] != null
+          ? List<double>.from(json['aListOfDoubles'])
+          : null,
     );
   }
 }

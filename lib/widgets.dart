@@ -15,7 +15,7 @@ class SimpleObjectView extends StatelessWidget {
     final localTheme = Theme.of(context).textTheme;
     final boldStyle = localTheme.body1.copyWith(fontWeight: FontWeight.w600);
 
-    if (simpleObject == null) return Text('NULL', style: boldStyle);
+    if (simpleObject == null) return Text('NULL', style: localTheme.body1);
 
     return Table(
       columnWidths: const {
@@ -129,7 +129,7 @@ class ComplexObjectView extends StatelessWidget {
     if (simpleObjects == null) {
       return [
         const Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text('NULL'),
         ),
       ];

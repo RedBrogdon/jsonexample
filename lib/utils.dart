@@ -5,8 +5,6 @@
 String prettyPrintList(Iterable iter) {
   if (iter == null) return 'NULL';
 
-  if (iter.length == 0) return '[]';
-
   final buff = StringBuffer();
   var isFirst = true;
 
