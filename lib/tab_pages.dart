@@ -5,9 +5,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:jsonexample/json_strings.dart';
 import 'package:jsonexample/dart_convert/converted_complex_object.dart';
 import 'package:jsonexample/dart_convert/converted_simple_object.dart';
+import 'package:jsonexample/json_serializable/serializable_complex_object.dart';
+import 'package:jsonexample/json_serializable/serializable_simple_object.dart';
+import 'package:jsonexample/json_strings.dart';
 import 'package:jsonexample/utils.dart';
 import 'package:jsonexample/widgets.dart';
 
@@ -161,7 +163,7 @@ class ConvertedSimplePage extends StatelessWidget {
 class ConvertedComplexPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<ConvertedComplexObject> objects = JsonStrings.simpleObjects.map(
+    List<ConvertedComplexObject> objects = JsonStrings.complexObjects.map(
       (jsonString) {
         final parsedJson = json.decode(jsonString);
         return ConvertedComplexObject.fromJson(parsedJson);
@@ -186,6 +188,69 @@ class ConvertedListPage extends StatelessWidget {
 
     final deserializedObjects =
         parsedJson.map((o) => ConvertedComplexObject.fromJson(o));
+
+    final listOfObjects = deserializedObjects.toList();
+
+    return ListView(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      children: [
+        const SizedBox(height: 16.0),
+        SimpleObjectViewList(listOfObjects),
+        const SizedBox(height: 16.0),
+      ],
+    );
+  }
+}
+
+class SerializableSimplePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    List<SerializableSimpleObject> objects = JsonStrings.simpleObjects.map(
+      (jsonString) {
+        final parsedJson = json.decode(jsonString);
+        return SerializableSimpleObject.fromJson(parsedJson);
+      },
+    ).toList();
+
+    return ListView(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      children: [
+        const SizedBox(height: 16.0),
+        SimpleObjectViewList(objects),
+        const SizedBox(height: 16.0),
+      ],
+    );
+  }
+}
+
+class SerializableComplexPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    List<SerializableComplexObject> objects = JsonStrings.complexObjects.map(
+      (jsonString) {
+        final parsedJson = json.decode(jsonString);
+        return SerializableComplexObject.fromJson(parsedJson);
+      },
+    ).toList();
+
+    return ListView(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      children: [
+        const SizedBox(height: 16.0),
+        ComplexObjectViewList(objects),
+        const SizedBox(height: 16.0),
+      ],
+    );
+  }
+}
+
+class SerializableListPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final parsedJson = json.decode(JsonStrings.listOfSimpleObjects);
+
+    final deserializedObjects =
+        parsedJson.map((o) => SerializableSimpleObject.fromJson(o));
 
     final listOfObjects = deserializedObjects.toList();
 
