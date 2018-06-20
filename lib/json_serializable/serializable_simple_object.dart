@@ -4,7 +4,7 @@
 
 import 'package:json_annotation/json_annotation.dart';
 
-part 'package:jsonexample/json_serializable/serializable_simple_object.g.dart';
+part 'serializable_simple_object.g.dart';
 
 /// An annotation for the code generator to know that this class needs the
 /// JSON serialization logic to be generated.

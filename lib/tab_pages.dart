@@ -5,6 +5,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:jsonexample/built_value/built_complex_object.dart';
+import 'package:jsonexample/built_value/built_simple_object.dart';
+import 'package:jsonexample/built_value/built_value_serializers.dart';
 import 'package:jsonexample/dart_convert/converted_complex_object.dart';
 import 'package:jsonexample/dart_convert/converted_simple_object.dart';
 import 'package:jsonexample/json_serializable/serializable_complex_object.dart';
@@ -251,6 +254,71 @@ class SerializableListPage extends StatelessWidget {
 
     final deserializedObjects =
         parsedJson.map((o) => SerializableSimpleObject.fromJson(o));
+
+    final listOfObjects = deserializedObjects.toList();
+
+    return ListView(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      children: [
+        const SizedBox(height: 16.0),
+        SimpleObjectViewList(listOfObjects),
+        const SizedBox(height: 16.0),
+      ],
+    );
+  }
+}
+
+class BuiltSimplePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    List<BuiltSimpleObject> objects = JsonStrings.simpleObjects.map(
+      (jsonString) {
+        final parsedJson = json.decode(jsonString);
+        return serializers.deserializeWith(
+            BuiltSimpleObject.serializer, parsedJson);
+      },
+    ).toList();
+
+    return ListView(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      children: [
+        const SizedBox(height: 16.0),
+        SimpleObjectViewList(objects),
+        const SizedBox(height: 16.0),
+      ],
+    );
+  }
+}
+
+class BuiltComplexPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    List<BuiltComplexObject> objects = JsonStrings.complexObjects.map(
+      (jsonString) {
+        final parsedJson = json.decode(jsonString);
+        return serializers.deserializeWith(
+            BuiltComplexObject.serializer, parsedJson);
+      },
+    ).toList();
+
+    return ListView(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      children: [
+        const SizedBox(height: 16.0),
+        ComplexObjectViewList(objects),
+        const SizedBox(height: 16.0),
+      ],
+    );
+  }
+}
+
+class BuiltListPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final parsedJson = json.decode(JsonStrings.listOfSimpleObjects);
+
+    final deserializedObjects = parsedJson.map(
+        (o) => serializers.deserializeWith(BuiltComplexObject.serializer, o));
 
     final listOfObjects = deserializedObjects.toList();
 
