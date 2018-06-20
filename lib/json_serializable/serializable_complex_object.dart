@@ -5,7 +5,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:jsonexample/json_serializable/serializable_simple_object.dart';
 
-part 'package:jsonexample/json_serializable/serializable_complex_object.g.dart';
+part 'serializable_complex_object.g.dart';
 
 @JsonSerializable()
 class SerializableComplexObject extends Object
