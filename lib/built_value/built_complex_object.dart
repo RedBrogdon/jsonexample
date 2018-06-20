@@ -11,6 +11,9 @@ part 'built_complex_object.g.dart';
 
 abstract class BuiltComplexObject
     implements Built<BuiltComplexObject, BuiltComplexObjectBuilder> {
+  static Serializer<BuiltComplexObject> get serializer =>
+      _$builtComplexObjectSerializer;
+
   @nullable
   String get aString;
 
@@ -31,9 +34,6 @@ abstract class BuiltComplexObject
   BuiltList<BuiltSimpleObject> get aListOfObjects;
 
   BuiltComplexObject._();
-
-  static Serializer<BuiltComplexObject> get serializer =>
-      _$builtComplexObjectSerializer;
 
   factory BuiltComplexObject([updates(BuiltComplexObjectBuilder b)]) =
       _$BuiltComplexObject;

@@ -10,6 +10,9 @@ part 'built_simple_object.g.dart';
 
 abstract class BuiltSimpleObject
     implements Built<BuiltSimpleObject, BuiltSimpleObjectBuilder> {
+  static Serializer<BuiltSimpleObject> get serializer =>
+      _$builtSimpleObjectSerializer;
+
   @nullable
   String get aString;
 
@@ -26,9 +29,6 @@ abstract class BuiltSimpleObject
   BuiltList<double> get aListOfDoubles;
 
   BuiltSimpleObject._();
-
-  static Serializer<BuiltSimpleObject> get serializer =>
-      _$builtSimpleObjectSerializer;
 
   factory BuiltSimpleObject([updates(BuiltSimpleObjectBuilder b)]) =
       _$BuiltSimpleObject;
