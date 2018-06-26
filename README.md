@@ -4,9 +4,7 @@ A Flutter sample app that deserializes a set of JSON strings using three
 different libraries: `dart:convert`, `json_serializable`, and
 `built_value`.
 
-## Goal of this sample
-
-This sample should:
+## Goals for this sample
 
 * Help you decide which of the three most common libraries for
   deserializing JSON is right for your project.
@@ -25,12 +23,12 @@ The actual JSON to be deserialized.
 
 These folders contain code used to deserialize the simple and complex
 object models using one of the three libraries. They do the work of
-instatiating models and populating their fields.
+instantiating models and populating their fields.
 
 ### `tab_pages.dart`
 
 Each tab page in the app deserializes one type of data with one library.
-These Widgets show what app code using the above models would look like.
+These Widgets show what app code using the above libraries might look like.
 
 ## Questions/issues
 
